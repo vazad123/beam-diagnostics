@@ -43,25 +43,90 @@
 	breakatwhitespace=true,
 	tabsize=3
 }
-\author{Rachana Yajur\\Supervisors: Drew Bertwistle and Mark Boland}
-\title{Design of beam diagnostic equipment for electron sources}
+\author{Rachana Yajur\\Supervisors: Drew Bertwistle,Les Dallin and Mark Boland}
+\title{Design of Beam Diagnostic Equipment for Electron Sources Laboratory}
 
 \begin{document}
 
 \maketitle
 
-	\tableofcontents 
-	\pagebreak
+\tableofcontents 
+
 	
     \section{Introduction}
+    The aim of this project is to plan the setup for the new electron source laboratory which comprises of the electron beam optics experimental setup which will be used to characterize electron guns that would later be used to replace the existing 250 MeV electron gun.  
+    
+    This new laboratory will be housed in  an area near the LINAC. The experiment comprises of two main parts: a quadrupole scanner and a dipole bender both of which are assembled using the spare quadrupoles and dipole which were used in the storage ring.
+    
+    After the electron gun, there is planned a beam position monitor followed by steering magnets to make sure the beam's longitudinal momentum is directed to reach the final destination of the vacuum chamber apparatus. Once the beam is steered into correct position, it is made to pass through a quadrupole scanner and finally a dipole bender whose characteristics are explained in detail in the following sections. 
+    
+    
+    \section{Solenoids}
+    So this helps to focus the beam and so there might not be a necessity for correcting magnets. So, what about the solenoids? 
+    
+    \section{Corrector magnets}
+    
+    
+    
     \section{Quadrupole Scanner}
-    A quadrupole scanner can be used to 
+    A quadrupole scanner can be used to measure the transverse emittance of the electron beam to a high accuracy. This is done by conforming to the fact that the beam optics can be described in terms of transfer matrices and if the distribution of the beam after the optics is known in position space, the entire phase space can be reconstructed by taking multiple measurements and finding the solutions by solving multiple equations. 
+    
+    
+    In this case, we will use three quadrupoles along the path of the beam and a beam profile monitor after an optimal drift length. By varying the quadrupole strength and collecting multiple measurements, we can reconstruct the transverse phase space and the emittance of the beam. This method of quadrupole scanning technique is called multiple-optics single-location scheme\cite{PhysRevSTAB.17.052801}.  
+    
+    \subsection{Theory}
+    
+    The transverse statistical properties which can be described entirely by the phase space elements can be written in the form of a 4D transverse matrix given by:
+    
+    \begin{equation}
+        \sigma^{4D} = \begin{pmatrix} \langle x^2\rangle &  \langle xx'\rangle& \langle xy\rangle &  \langle xy'\rangle\\  \langle xx'\rangle &  \langle x'^2\rangle & \langle x'y\rangle &  \langle x'y'\rangle\\ \langle xy\rangle &  \langle x'y\rangle& \langle y^2\rangle &  \langle yy'\rangle\\ \langle xy'\rangle &  \langle x'y'\rangle& \langle yy'\rangle &  \langle y'^2\rangle\end{pmatrix} = \begin{pmatrix}\sigma_{xx}&\sigma_{xy}\\\sigma_{xy}^T & \sigma_{yy} \end{pmatrix}
+    \end{equation}
+    
+    Where $x$ and $y$ are horizontal and vertical coordinates and $x'$ and $y'$ are their derivatives with respect to the longitudinal coordinate. In the ideal case when $x$ and $y$ coordinates are decoupled, $\sigma_{xy} = 0$, and only measuring the 2D beam matrices would suffice to charecterize the transverse emittance of the beam. But in reality there will be some $xy$ correlations and the $\sigma_{xy} \neq 0$. If we tend to ignore the $\sigma_{xy}$ terms and only measure the 2D transverse emittances, then the obtained emittances are called \textit{apparent} emittances. 
+    
+    In the case of charecterization of the electron gun, we begin with the assumption of the gun being a black box and hence cannot rely on the accuracy of the apparent emittances. Therefore we need to measure the entire 4D matrix. 
+    
+    As the beam progresses along the quadrupole triplet, the transverse matrix changes according to the following relation: 
+    
+    \begin{equation}
+        \sigma_{s} = R \sigma_{s_{0}} R^T
+    \end{equation}
+    
+    Where R is the transport matrix between $s$ and $s_0$ whose elements are determined by the quadrupole strengths, length and the drift space. 
+    
+    Once the $R$ matrix and $\sigma_s$ are known, $\sigma_{s_0}$ can be reconsctructed by taking atleast 4 measurements 
+    
+    \subsection{Simulations}
+    \subsubsection{Dimad}
+    \subsubsection{Astra}
+    try fieldplot
+    \subsubsection{Particle Studio CST}
+    Firstly we use a simple simulation method to find out the parameters of the quadrupoles and  drift space. The quadrupole parameters are constrained by the length and aperture of the already available spare quadrupoles.     
+    
+    
+    Simulate to visualize how the beam size varies with varying quadrupole strength and find out about how to vary the quadrupole strength - to what degree and in what way. And optimize the drift space parameters accordingly.
+    
+    
+    So betax and betay are linearly dependent on the change in strength of the magnet. So prior calibration can save the efforts of taking multiple readings and so the entire transverse emittance can be calculated by just one single reading. Apparently it is parabolic according to some papers. So can we calibrate the parabola and see what happens? Finish this thing very fast. Just finish this. Monday finalize the dipole magnet properties and wrap up the complete plan.   
+    
+    Might also need to look into CST simulations next. 
+    
+    Work on a new type of quad scanner design and make detailed simulations and show that it can scan a wide range of electron beam properties. 
+    
+    
+    
     
     
     
     \section{Dipole Bender}
-	\section{Arrangement and Design}
+    \subsection{Theory}
+    \subsection{Simulations}
+    
+	\section{Layout and Design}
 	\section{Error analysis} 
 	\section{Codes}
 	
+	
+	\bibliographystyle{plain}
+	\bibliography{refs}
 	\end{document}
